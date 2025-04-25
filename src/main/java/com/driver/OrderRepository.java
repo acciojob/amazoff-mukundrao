@@ -48,10 +48,12 @@ public class OrderRepository {
                 orderSet.add(orderId);
                 partnerToOrderMap.put(partnerId,orderSet);
             }
-            partnerToOrderMap.get(partnerId).add(orderId);
-            DeliveryPartner deliveryPartner = partnerMap.get(partnerId);
-            deliveryPartner.setNumberOfOrders(deliveryPartner.getNumberOfOrders()+1);
-            orderToPartnerMap.put(orderId,partnerId);
+            else {
+                partnerToOrderMap.get(partnerId).add(orderId);
+                DeliveryPartner deliveryPartner = partnerMap.get(partnerId);
+                deliveryPartner.setNumberOfOrders(deliveryPartner.getNumberOfOrders() + 1);
+                orderToPartnerMap.put(orderId, partnerId);
+            }
         }
     }
 
